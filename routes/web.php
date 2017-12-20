@@ -25,7 +25,8 @@ Route::get('/admin/dashboard', function () {
 //
 // Route::get('/', 'HomeController@index');
 //
- Route::resource('/admin/categories', 'CategoriesController');
+Route::resource('/admin/categories', 'CategoriesController');
+Route::resource('/admin/subcategories', 'SubcategoriesController');
 // Route::resource('/admin/subcategories', 'SubcategoriesController');
 // Route::resource('products', 'ProductsController');
 // // Route::get('/', function () {

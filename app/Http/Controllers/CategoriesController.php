@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use Illuminate\Http\Request;
 use Session;
+use Image;
 
 class CategoriesController extends Controller
 {
@@ -49,6 +50,15 @@ class CategoriesController extends Controller
       $category = new Category;   //create new instance
       $category->name = $request->name;
       $category->description = $request->description;
+
+      if($request->hasFile('image')) {
+          $image = $request->file('image');
+          $filename = time() . '.' . $image->getClientOriginalExtension();
+          $location = public_path('images/' . $filename);
+          Image::make($image)->resize(800,800)->save($location);
+          $category->image = $filename;
+      }
+
       $category->save();
 
       //send success message through session

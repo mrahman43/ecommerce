@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Subcategory;
 use Illuminate\Http\Request;
+use Session;
 
 class SubcategoriesController extends Controller
 {
@@ -13,6 +16,9 @@ class SubcategoriesController extends Controller
      */
     public function index()
     {
+        $subcategories = Subcategory::paginate(5);
+
+        return view('admin.subcategories.index', ['subcategories' => $subcategories]);
         //
     }
 
@@ -23,7 +29,8 @@ class SubcategoriesController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('admin.subcategories.create', ['categories' => $categories]);
     }
 
     /**
@@ -34,7 +41,24 @@ class SubcategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, array(
+          'name' => 'required|max:255',
+          'category_id' => 'required',
+        )); //returns to request page if validation failed with the errors stored in the variable $errors
+
+        // store in database
+        $subcategory = new Subcategory;   //create new instance
+        $subcategory->name = $request->name;
+        $subcategory->description = $request->description;
+        $subcategory->category_id = $request->category_id;
+        $subcategory->save();
+
+        //send success message through session
+        Session::flash('success', 'Subcategory created successfully!');
+        //flash() is a var type inside session, exists for only a single user request
+        //to store a var throughout the session use put()
+
+        return redirect()->route('subcategories.index');
     }
 
     /**

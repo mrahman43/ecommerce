@@ -28,7 +28,10 @@
 									<td> {{ $category->id }} </td>
                   <td> {{ $category->name }} </td>
                   <td> {{ substr($category->description, 0, 75) }} {{ strlen($category -> description) > 50 ? "..." :"" }} </td>
-									<td> {{ $category->image }} </td>
+									<td> @if($category->image <> NULL)
+										<img src="{{ asset('images/' . $category->image ) }}" height="100" width="100">
+									@endif
+									</td>
                   <td> {{ date('j M Y', strtotime($category->created_at)) }} </td>
                   <td class="text-center col-lg-2">
 										<div class="btn-group btn-group-justified">

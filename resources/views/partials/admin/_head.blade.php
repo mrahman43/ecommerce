@@ -25,8 +25,10 @@
 
 <script type="text/javascript" src="{{ asset('admin/assets/js/plugins/uploaders/fileinput.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('admin/assets/js/core/app.js') }}"></script>
+<script type="text/javascript" src="{{ asset('admin/assets/js/plugins/forms/selects/select2.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('admin/assets/js/pages/uploader_bootstrap.js') }}"></script>
 {{-- <script type="text/javascript" src="{{ asset('admin/assets/js/pages/form_validation.js') }}"></script> --}}
-<script type="text/javascript" src="{{ asset('admin/assets/js/plugins/notifications/pnotify.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('admin/assets/js/pages/components_notifications_pnotify.js') }}"></script>
+{{-- <script type="text/javascript" src="{{ asset('admin/assets/js/plugins/notifications/pnotify.min.js') }}"></script> --}}
+<script type="text/javascript" src="{{ asset('admin/assets/js/pages/form_select2.js') }}"></script>
+{{-- <script type="text/javascript" src="{{ asset('admin/assets/js/pages/components_notifications_pnotify.js') }}"></script> --}}
 <!-- /theme JS files -->
