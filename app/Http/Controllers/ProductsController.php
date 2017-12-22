@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
+use App\Subcategory;
 use Illuminate\Http\Request;
+use Session;
+use Image;
 
 class ProductsController extends Controller
 {
@@ -14,7 +18,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::paginate(5);
+        return view('admin.products.index', ['products' => $products]);
     }
 
     /**
@@ -24,7 +29,9 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        return view('admin.products.create', ['categories' => $categories], ['subcategories' => $subcategories]);
     }
 
     /**
@@ -35,7 +42,34 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, array(
+          'name' => 'required|max:255',
+          'category_id' => 'required',
+        )); //returns to request page if validation failed with the errors stored in the variable $errors
+
+        // store in database
+        $product = new Product;   //create new instance
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->purchase_price = $request->purchase_price;
+        $product->quantity = $request->quantity;
+        $product->category_id = $request->category_id;
+        $product->subcategory_id = $request->subcategory_id;
+        if($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/products/' . $filename);
+            Image::make($image)->resize(800,800)->save($location);
+            $product->image = $filename;
+        }
+        $product->save();
+
+        //send success message through session
+        Session::flash('success', 'Product created successfully!');
+        //flash() is a var type inside session, exists for only a single user request
+        //to store a var throughout the session use put()
+
+        return redirect()->route('products.index');
     }
 
     /**
@@ -46,7 +80,7 @@ class ProductsController extends Controller
      */
     public function show(Product $product)
     {
-        //
+      
     }
 
     /**

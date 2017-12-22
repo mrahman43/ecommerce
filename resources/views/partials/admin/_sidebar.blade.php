@@ -35,11 +35,14 @@
           <!-- Main -->
           <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
           <li ><a href="index.html"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
-          <li class="active">
-            <a href="{{ route('categories.index') }}"><i class="icon-stack2"></i> <span>Category</span></a>
+          <li class="">
+            <a href="{{ route('categories.index') }}"><i class="icon-pencil"></i> <span>Category</span></a>
           </li>
           <li class="">
             <a href="{{ route('subcategories.index') }}"><i class="icon-stack2"></i> <span>Subcategory</span></a>
+          </li>
+          <li class="">
+            <a href="{{ route('products.index') }}"><i class="icon-office"></i> <span>Product</span></a>
           </li>
         </ul>
       </div>

@@ -14,6 +14,8 @@
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard.index');
 });
+
+Route::resource('/products', 'CustomerController');
 // Route::get('/admin/categories', 'CategoriesController@index');
 // Route::get('/admin/categories/create', 'CategoriesController@create');
 // Route::post('/admin/categories/create', 'CategoriesController@store');
@@ -27,6 +29,7 @@ Route::get('/admin/dashboard', function () {
 //
 Route::resource('/admin/categories', 'CategoriesController');
 Route::resource('/admin/subcategories', 'SubcategoriesController');
+Route::resource('/admin/products', 'ProductsController');
 // Route::resource('/admin/subcategories', 'SubcategoriesController');
 // Route::resource('products', 'ProductsController');
 // // Route::get('/', function () {
