@@ -19,11 +19,14 @@ class CreateProductsTable extends Migration
             $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->double('purchase_price');
-            $table->double('quantity');
+            $table->double('price');
+            $table->double('stock');
             $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade');
             $table->integer('subcategory_id')->unsigned();
-            $table->foreign('subcategory_id')->references('id')->on('subcategories');
+            $table->foreign('subcategory_id')->references('id')->on('subcategories')->onUpdate('cascade');
+            $table->integer('active');
+            $table->double('tax')->nullable();
             $table->timestamps();
         });
     }

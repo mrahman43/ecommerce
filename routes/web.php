@@ -11,35 +11,22 @@
 |
 */
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard.index');
+// Route::get('/admin/dashboard', function () {
+//     return view('admin.dashboard.index');
+// });
+
+// Route::resource('/products', 'CustomerController');
+// ('/', 'HomeController@index');
+//
+
+Route::prefix('admin')->group(function () {
+  Route::get('/dashboard','AdminController@dashboard')->name('admin.dashboard');
+  Route::resource('/categories', 'CategoriesController');
+  Route::resource('/subcategories', 'SubcategoriesController');
+  Route::get('/subcategories/attributes/{subcategory_id}{product_id}', 'ProductsController@attribute')->name('products.attribute');
+  Route::post('/subcategories/attributes/{product_id}', 'ProductsController@store_attribute')->name('products.store_attribute');
+  //Route::get('/subcategories', 'SubcategoriesController@attribute')->name('subcategory.attribute');
+  Route::resource('/products', 'ProductsController');
+  Route::get('/','AdminController@index');
+
 });
-
-Route::resource('/products', 'CustomerController');
-// Route::get('/admin/categories', 'CategoriesController@index');
-// Route::get('/admin/categories/create', 'CategoriesController@create');
-// Route::post('/admin/categories/create', 'CategoriesController@store');
-
-// Route::get('/admin/categories/create', function () {
-//     return view('admin.categories.create');
-// });
-
-//
-// Route::get('/', 'HomeController@index');
-//
-Route::resource('/admin/categories', 'CategoriesController');
-Route::resource('/admin/subcategories', 'SubcategoriesController');
-Route::resource('/admin/products', 'ProductsController');
-// Route::resource('/admin/subcategories', 'SubcategoriesController');
-// Route::resource('products', 'ProductsController');
-// // Route::get('/', function () {
-//     return view('welcome');
-// });
-//
-//Auth::routes();
-//
-// Route::get('/home', 'HomeController@index')->name('home');
-//
-// Auth::routes();
-//
-// Route::get('/home', 'HomeController@index')->name('home');

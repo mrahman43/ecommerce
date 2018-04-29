@@ -33,8 +33,10 @@
         <ul class="navigation navigation-main navigation-accordion">
 
           <!-- Main -->
-          <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
-          <li ><a href="index.html"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+          <li class="navigation-header"><span>Dashboard</span> <i class="icon-menu" title="Main pages"></i></li>
+          <li ><a href="{{ route('admin.dashboard') }}"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+          <li ><a href="{{ route('admin.dashboard') }}"><i class="icon-home4"></i> <span>Sales Report</span></a></li>
+          <li class="navigation-header"><span>Product Control</span> <i class="icon-menu" title="Main pages"></i></li>
           <li class="">
             <a href="{{ route('categories.index') }}"><i class="icon-pencil"></i> <span>Category</span></a>
           </li>
@@ -44,6 +46,11 @@
           <li class="">
             <a href="{{ route('products.index') }}"><i class="icon-office"></i> <span>Product</span></a>
           </li>
+          <li class="navigation-header"><span>Website</span> <i class="icon-menu" title="Main pages"></i></li>
+          <li ><a href="{{ route('admin.dashboard') }}"><i class="icon-home4"></i> <span>Settings</span></a></li>
+          <li class="navigation-header"><span>Accounts</span> <i class="icon-menu" title="Main pages"></i></li>
+          <li ><a href="{{ route('admin.dashboard') }}"><i class="icon-home4"></i> <span>Users</span></a></li>
+          <li ><a href="{{ route('admin.dashboard') }}"><i class="icon-home4"></i> <span>Employees</span></a></li>
         </ul>
       </div>
     </div>

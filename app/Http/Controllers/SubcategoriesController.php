@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Subcategory;
+use App\Attribute;
 use Illuminate\Http\Request;
 use Session;
 
@@ -29,8 +30,9 @@ class SubcategoriesController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        return view('admin.subcategories.create', ['categories' => $categories]);
+        $category = Category::all();
+        //return view('admin.subcategories.create', ['categories' => $categories]);
+          return view('admin.subcategories.create')->withCategory($category);
     }
 
     /**
@@ -58,8 +60,36 @@ class SubcategoriesController extends Controller
         //flash() is a var type inside session, exists for only a single user request
         //to store a var throughout the session use put()
 
+        foreach ($request->attribute as $value) {
+          $attribute = new Attribute;
+          $attribute->subcategory_id = $subcategory->id;
+          $attribute->name = $value;
+          $attribute->save();
+        }
+
+
         return redirect()->route('subcategories.index');
     }
+    // public function attribute(Request $request, $id)
+    // {
+    //     // $this->validate($request, array(
+    //     //   'name' => 'required|max:255',
+    //     //   'category_id' => 'required',
+    //     // )); //returns to request page if validation failed with the errors stored in the variable $errors
+    //
+    //     // store in database
+    //     $attribute = new Attribute;   //create new instance
+    //     $attribute->name = $request->name;
+    //     $attribute->subcategory_id = $id;
+    //     $attribute->save();
+    //
+    //     //send success message through session
+    //     Session::flash('success', 'Subcategory created successfully!');
+    //     //flash() is a var type inside session, exists for only a single user request
+    //     //to store a var throughout the session use put()
+    //
+    //     return redirect()->route('subcategories.index');
+    // }
 
     /**
      * Display the specified resource.
@@ -80,7 +110,10 @@ class SubcategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::all();
+        $subcategories = Subcategory::find($id);
+        $attributes = Attribute::where('subcategory_id','=', $id)->get();
+        return view('admin.subcategories.edit', ['categories'=> $categories, 'subcategory' => $subcategories, 'attributes' => $attributes]);
     }
 
     /**
@@ -92,7 +125,44 @@ class SubcategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, array(
+          'name' => 'required|max:255',
+          'category_id' => 'required',
+        ));
+        $subcategory = Subcategory::find($id);
+
+        $subcategory->name = $request->input('name');
+        $subcategory->description = $request->input('description');
+        if($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/subcategories/' . $filename);
+            Image::make($image)->resize(800,800)->save($location);
+            $subcategory->image = $filename;
+        }
+        $subcategory->category_id = $request->input('category_id');
+        $subcategory->save();
+
+
+        $collection1 = $request->input('attribute_id');
+        $collection2 = $request->input('attribute_name');
+        if(!empty($collection1)) {
+        foreach (array_combine($collection1,$collection2) as $id => $name) {
+          $attribute = Attribute::find($id);
+          // if(count($attribute->id) <> 0) {
+          $attribute->name = $name;
+          $attribute->save();
+          // } else {
+          //   $attribute = new Attribute;
+          //   $attribute->subcategory_id = $subcategory->id;
+          //   $attribute->name = $name;
+          //   $attribute->save();
+          // }
+        }
+      }
+        Session::flash('success', 'Category updated successfully!');
+
+        return redirect()->route('subcategories.index');
     }
 
     /**
@@ -103,6 +173,18 @@ class SubcategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $subcategory = Subcategory::find($id);
+
+        try {
+          $subcategory->delete();
+          Session::flash('success', 'Subcategory deleted successfully!');
+        }
+        catch(QueryException $e) {
+          Session::flash('warning', 'Failed to perform the operation!');
+          return redirect()->route('subcategories.index');
+          //dd($e->getMessage());
+        }
+
+        return redirect()->route('subcategories.index');
     }
 }

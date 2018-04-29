@@ -2,13 +2,11 @@
 
 @section('content')
   <!-- Basic datatable -->
-					<div class="panel panel-flat">
+					<div class="panel panel-white">
 						<div class="panel-heading">
 							<h1 class="panel-title">Category</h1>
 							<div class="heading-elements">
-								<ul class="icons-list">
-									<li>{{ Html::linkRoute('categories.create', 'Create', array() ,array('class' => 'btn btn-default')) }}</li>
-				        </ul>
+									{{ Html::linkRoute('categories.create', 'Create', array() ,array('class' => 'btn btn-success')) }}
             	</div>
 						</div>
 						<table class="table datatable-basic">
@@ -16,10 +14,8 @@
                 <tr>
 									<th>#</th>
                   <th>Category Name</th>
-                  <th>Description</th>
-                  <th>Image</th>
-									<th>Created At</th>
-                  <th class="text-center">Actions</th>
+                  <th>Created At</th>
+                  <th class="text-center col-lg-4">Actions</th>
                 </tr>
 							</thead>
 							<tbody>
@@ -27,14 +23,17 @@
                 <tr>
 									<td> {{ $category->id }} </td>
                   <td> {{ $category->name }} </td>
-                  <td> {{ substr($category->description, 0, 75) }} {{ strlen($category -> description) > 50 ? "..." :"" }} </td>
+                  {{-- <td> {{ substr($category->description, 0, 75) }} {{ strlen($category -> description) > 50 ? "..." :"" }} </td>
 									<td> @if($category->image <> NULL)
 										<img src="{{ asset('images/' . $category->image ) }}" height="100" width="100">
 									@endif
-									</td>
+									</td> --}}
                   <td> {{ date('j M Y', strtotime($category->created_at)) }} </td>
                   <td class="text-center col-lg-2">
 										<div class="btn-group btn-group-justified">
+												<div class="btn-group">
+														<a href="{{ route('categories.show', $category->id) }}" class="btn btn-default"><i class="icon-cog position-left"></i> Details</a>
+												</div>
 												<div class="btn-group">
 														<a href="{{ route('categories.edit', $category->id) }}" class="btn btn-default"><i class="icon-pencil4 position-left"></i> Edit</a>
 												</div>

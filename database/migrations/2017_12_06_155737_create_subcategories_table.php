@@ -19,7 +19,9 @@ class CreateSubcategoriesTable extends Migration
             $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade');
+            // $table->integer('attribute_id')->unsigned();
+            // $table->foreign('attribute_id')->references('id')->on('attributes');
             $table->timestamps();
         });
     }

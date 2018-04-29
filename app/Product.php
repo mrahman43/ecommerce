@@ -15,5 +15,10 @@ class Product extends Model
     public function subcategory() {
         return $this->belongsTo('App\Subcategory');
     }
-
+    public function status() {
+        return $this->belongsTo('App\Status');
+    }
+    public function attributeset() {
+        return $this->belongsTo('App\Attributeset');
+    }
 }

@@ -3,14 +3,7 @@
 @section('content')
   <div class="panel panel-white">
 			<div class="panel-heading">
-				<h5 class="panel-title">Create New Product</h5>
-				<div class="heading-elements">
-					<ul class="icons-list">
-        		<li><a data-action="collapse"></a></li>
-        		<li><a data-action="reload"></a></li>
-        		<li><a data-action="close"></a></li>
-        	</ul>
-      	</div>
+				<h1 class="panel-title">Create New Product</h1>
 			</div>
 			<div class="panel-body">
         {{ Form::open(array('route' => 'products.store', 'files' => true, 'class' => 'form-horizontal form-validate-jquery', 'action' => '#')) }}
@@ -27,15 +20,27 @@
             </div>
         </div>
         <div class="form-group">
-            {{ Form::label('purchase_price', 'Price: ', array('class' => 'control-label col-lg-2')) }}
+            {{ Form::label('price', 'Price: ', array('class' => 'control-label col-lg-2')) }}
+            <div class="col-lg-10">
+            {{ Form::text('price', null, array('class' => 'form-control', 'required' => 'required')) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ Form::label('purchase_price', 'Purchase Price: ', array('class' => 'control-label col-lg-2')) }}
             <div class="col-lg-10">
             {{ Form::text('purchase_price', null, array('class' => 'form-control', 'required' => 'required')) }}
             </div>
         </div>
         <div class="form-group">
-            {{ Form::label('quantity', 'Quantity: ', array('class' => 'control-label col-lg-2')) }}
+            {{ Form::label('tax', 'Tax: ', array('class' => 'control-label col-lg-2')) }}
             <div class="col-lg-10">
-            {{ Form::number('quantity', null, array('class' => 'form-control', 'required' => 'required')) }}
+            {{ Form::text('tax', null, array('class' => 'form-control', 'required' => 'required')) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ Form::label('stock', 'Stock Quantity: ', array('class' => 'control-label col-lg-2')) }}
+            <div class="col-lg-10">
+            {{ Form::number('stock', null, array('class' => 'form-control', 'required' => 'required')) }}
             </div>
         </div>
         <div class="form-group">
@@ -58,6 +63,16 @@
                     <option value="{!! $subcategory->id !!}">{{ $subcategory->name }}</option>
                 @endforeach
             </select>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ Form::label('active', 'Active Status: ', array('class' => 'control-label col-lg-2')) }}
+            <div class="col-lg-10">
+            <select class="select-search" name="active">
+                <option></option>
+                    <option value="1" selected>Yes</option>
+                    <option value="2">No</option>
+                </select>
             </div>
         </div>
         <div class="form-group">

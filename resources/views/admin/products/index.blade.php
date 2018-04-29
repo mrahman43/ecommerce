@@ -6,9 +6,8 @@
 						<div class="panel-heading">
 							<h1 class="panel-title">Product</h1>
 							<div class="heading-elements">
-								<ul class="icons-list">
-									<li>{{ Html::linkRoute('products.create', 'Create', array() ,array('class' => 'btn btn-default')) }}</li>
-				        </ul>
+								{{ Html::linkRoute('products.create', 'Create', array() ,array('class' => 'btn btn-success')) }}</li>
+
             	</div>
 						</div>
 						<table class="table datatable-basic">
@@ -20,9 +19,7 @@
                   <th>Image</th>
                   <th>Price</th>
                   <th>Quantity</th>
-									<th>Category</th>
-                  <th>Subcategory</th>
-                  <th>Created At</th>
+									<th>Created At</th>
                   <th class="text-center">Actions</th>
                 </tr>
 							</thead>
@@ -38,8 +35,6 @@
 									</td>
                   <td> {{ $product->purchase_price }} </td>
                   <td> {{ $product->quantity }} </td>
-                  <td> {{ $product->category->name }} </td>
-                  <td> {{ $product->subcategory->name }} </td>
                   <td> {{ date('j M Y', strtotime($product->created_at)) }} </td>
                   <td class="text-center col-lg-2">
 										<div class="btn-group btn-group-justified">

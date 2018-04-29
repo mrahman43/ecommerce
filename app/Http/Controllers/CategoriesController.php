@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\QueryException;
 use App\Category;
 use Illuminate\Http\Request;
 use Session;
@@ -43,7 +44,6 @@ class CategoriesController extends Controller
       // validation
       $this->validate($request, array(
         'name' => 'required|max:255',
-        'description' => 'required',
       )); //returns to request page if validation failed with the errors stored in the variable $errors
 
       // store in database
@@ -54,7 +54,7 @@ class CategoriesController extends Controller
       if($request->hasFile('image')) {
           $image = $request->file('image');
           $filename = time() . '.' . $image->getClientOriginalExtension();
-          $location = public_path('images/' . $filename);
+          $location = public_path('images/categories/' . $filename);
           Image::make($image)->resize(800,800)->save($location);
           $category->image = $filename;
       }
@@ -77,7 +77,8 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+      $category = Category::find($id);
+      return view('admin.categories.show')->withCategory($category);
     }
 
     /**
@@ -108,8 +109,13 @@ class CategoriesController extends Controller
 
         $category->name = $request->input('name');
         $category->description = $request->input('description');
-        $category->image = $request->input('image');
-
+        if($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/categories/' . $filename);
+            Image::make($image)->resize(800,800)->save($location);
+            $category->image = $filename;
+        }
         $category->save();
 
         Session::flash('success', 'Category updated successfully!');
@@ -126,10 +132,15 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-
-        $category->delete();
-
-        Session::flash('success', 'Category deleted successfully!');
+        try {
+          $category->delete();
+          Session::flash('success', 'Category deleted successfully!');
+        }
+        catch(QueryException $e) {
+          Session::flash('warning', 'Failed to perform the operation!');
+          return redirect()->route('categories.index');
+          //dd($e->getMessage());
+        }
 
         return redirect()->route('categories.index');
 

@@ -1,16 +1,9 @@
 @extends('layouts.admin.main')
 
 @section('content')
-  <div class="panel panel-flat">
+  <div class="panel panel-white">
 			<div class="panel-heading">
-				<h5 class="panel-title">Create New Category</h5>
-				<div class="heading-elements">
-					<ul class="icons-list">
-        		<li><a data-action="collapse"></a></li>
-        		<li><a data-action="reload"></a></li>
-        		<li><a data-action="close"></a></li>
-        	</ul>
-      	</div>
+				<h1 class="panel-title">Create New Category</h1>
 			</div>
 
 			<div class="panel-body">
