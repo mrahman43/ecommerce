@@ -11,15 +11,12 @@
 |
 */
 
-// Route::get('/admin/dashboard', function () {
-//     return view('admin.dashboard.index');
-// });
-
-// Route::resource('/products', 'CustomerController');
-// ('/', 'HomeController@index');
-//
+Auth::routes();
 
 Route::prefix('admin')->group(function () {
+  Route::resource('/user', 'UserAccountController');
+  Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+  Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
   Route::get('/dashboard','AdminController@dashboard')->name('admin.dashboard');
   Route::resource('/categories', 'CategoriesController');
   Route::resource('/subcategories', 'SubcategoriesController');
@@ -30,3 +27,9 @@ Route::prefix('admin')->group(function () {
   Route::get('/','AdminController@index');
 
 });
+
+Route::get('/product/{product_id}', 'PagesController@product')->name('product');
+Route::resource('/cart', 'ShoppingcartController');
+Route::get('/category/{category_id}', 'PagesController@category')->name('category');
+Route::get('/home', 'PagesController@homepage')->name('home');
+Route::get('/', 'PagesController@index');

@@ -18,6 +18,11 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct()
+     {
+           $this->middleware('auth:admin');
+     }
+     
     public function index()
     {
         $products = Product::paginate(5);
@@ -32,9 +37,7 @@ class ProductsController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
-        $subcategories = Subcategory::all();
-        return view('admin.products.create', ['categories' => $categories], ['subcategories' => $subcategories]);
+        return view('admin.products.create');
     }
 
     /**
@@ -49,8 +52,7 @@ class ProductsController extends Controller
           'name' => 'required|max:255',
           'purchase_price' => 'required',
           'stock' => 'required',
-          'category_id' => 'required',
-          'subcategory_id' => 'required',
+          'type' => 'required',
         )); //returns to request page if validation failed with the errors stored in the variable $errors
 
         // store in database
@@ -61,8 +63,11 @@ class ProductsController extends Controller
         $product->price = $request->price;
         $product->tax = $request->tax;
         $product->stock = $request->stock;
-        $product->category_id = $request->category_id;
-        $product->subcategory_id = $request->subcategory_id;
+        // $product->category_id = $request->category_id;
+        // $product->subcategory_id = $request->subcategory_id;
+        $type_result = explode('|',$request->type);
+        $product->category_id = $type_result[0];
+        $product->subcategory_id = $type_result[1];
         $product->active = $request->active;
         if($request->hasFile('image')) {
             $image = $request->file('image');

@@ -15,6 +15,11 @@ class SubcategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct()
+     {
+           $this->middleware('auth:admin');
+     }
+     
     public function index()
     {
         $subcategories = Subcategory::paginate(5);
@@ -30,9 +35,7 @@ class SubcategoriesController extends Controller
      */
     public function create()
     {
-        $category = Category::all();
-        //return view('admin.subcategories.create', ['categories' => $categories]);
-          return view('admin.subcategories.create')->withCategory($category);
+        return view('admin.subcategories.create');
     }
 
     /**
@@ -55,17 +58,19 @@ class SubcategoriesController extends Controller
         $subcategory->category_id = $request->category_id;
         $subcategory->save();
 
+
+        if(!empty($request->attribute)){
+          foreach ($request->attribute as $value) {
+            $attribute = new Attribute;
+            $attribute->subcategory_id = $subcategory->id;
+            $attribute->name = $value;
+            $attribute->save();
+          }
+        }
         //send success message through session
-        Session::flash('success', 'Subcategory created successfully!');
         //flash() is a var type inside session, exists for only a single user request
         //to store a var throughout the session use put()
-
-        foreach ($request->attribute as $value) {
-          $attribute = new Attribute;
-          $attribute->subcategory_id = $subcategory->id;
-          $attribute->name = $value;
-          $attribute->save();
-        }
+        Session::flash('success', 'Subcategory created successfully!');
 
 
         return redirect()->route('subcategories.index');

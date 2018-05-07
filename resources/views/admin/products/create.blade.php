@@ -34,7 +34,7 @@
         <div class="form-group">
             {{ Form::label('tax', 'Tax: ', array('class' => 'control-label col-lg-2')) }}
             <div class="col-lg-10">
-            {{ Form::text('tax', null, array('class' => 'form-control', 'required' => 'required')) }}
+            {{ Form::text('tax', null, array('class' => 'form-control')) }}
             </div>
         </div>
         <div class="form-group">
@@ -44,17 +44,23 @@
             </div>
         </div>
         <div class="form-group">
-            {{ Form::label('category', 'Category: ', array('class' => 'control-label col-lg-2')) }}
+            {{ Form::label('type', 'Type: ', array('class' => 'control-label col-lg-2')) }}
             <div class="col-lg-10">
-            <select data-placeholder="Select a category" class="select-search" name="category_id">
+            <select data-placeholder="Select a type" class="select-search" name="type">
                 <option></option>
                 @foreach ($categories as $category)
-                    <option value="{!! $category->id !!}">{{ $category->name }}</option>
+                    <optgroup label="{{ $category->name}}">
+                        @foreach ($subcategories as $subcategory)
+                            @if($subcategory->category_id == $category->id)
+                            <option value="{!! $category->id !!}|{!! $subcategory->id !!}">{{ $subcategory->name }}</option>
+                            @endif
+                        @endforeach
+                    </optgroup>
                 @endforeach
             </select>
             </div>
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
             {{ Form::label('subcategory', 'Subcategory: ', array('class' => 'control-label col-lg-2')) }}
             <div class="col-lg-10">
             <select data-placeholder="Select a subcategory" class="select-search" name="subcategory_id">
@@ -64,7 +70,7 @@
                 @endforeach
             </select>
             </div>
-        </div>
+        </div> --}}
         <div class="form-group">
             {{ Form::label('active', 'Active Status: ', array('class' => 'control-label col-lg-2')) }}
             <div class="col-lg-10">

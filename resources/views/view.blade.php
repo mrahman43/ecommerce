@@ -759,7 +759,8 @@
         <div class="col-main">
           <div class="product-view-area">
             <div class="product-big-image col-xs-12 col-sm-5 col-lg-5 col-md-5">
-              <div class="large-image"> <a href="{{asset('website/images/products/img03.jpg')}}" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img class="zoom-img" src="{{asset('images/products/' . $data->image )}}" alt="products"> </a> </div>
+              <div class="large-image"> <a href="{{asset('website/images/products/img03.jpg')}}" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20">
+                <img class="zoom-img" src="{{asset('images/products/' . $data->image )}}" alt="products"> </a> </div>
               <!-- end: more-images -->
 
             </div>

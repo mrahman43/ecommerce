@@ -12,7 +12,7 @@
             <div class="col-lg-10">
             <select data-placeholder="Select a category" class="select-search" name="category_id">
                 <option></option>
-                @foreach ($category as $category)
+                @foreach ($categories as $category)
                     <option value="{!! $category->id !!}">{{ $category->name }}</option>
                 @endforeach
             </select>
