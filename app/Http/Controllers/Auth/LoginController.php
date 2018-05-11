@@ -32,10 +32,10 @@ class LoginController extends Controller
      *
      * @return void
      */
-    protected function authenticated(Request $request, $user)
-    {
-          return redirect()->intended(route('home'));
-    }
+    // protected function authenticated(Request $request, $user)
+    // {
+    //       return redirect()->intended(route('home'));
+    // }
     public function __construct()
     {
         $this->middleware('guest')->except('logout');

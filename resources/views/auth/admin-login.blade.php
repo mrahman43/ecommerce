@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>themelock.com - Limitless - Responsive Web Application Kit by Eugene Kopyov</title>
+	<title>Dam Koto Admin | Login</title>
 
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
@@ -33,41 +33,6 @@
 
 <body>
 
-	<!-- Main navbar -->
-	<div class="navbar navbar-inverse">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="index.html"><img src="assets/images/logo_light.png" alt=""></a>
-
-			<ul class="nav navbar-nav pull-right visible-xs-block">
-				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
-			</ul>
-		</div>
-
-		<div class="navbar-collapse collapse" id="navbar-mobile">
-			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<a href="#">
-						<i class="icon-display4"></i> <span class="visible-xs-inline-block position-right"> Go to website</span>
-					</a>
-				</li>
-
-				<li>
-					<a href="#">
-						<i class="icon-user-tie"></i> <span class="visible-xs-inline-block position-right"> Contact admin</span>
-					</a>
-				</li>
-
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown">
-						<i class="icon-cog3"></i>
-						<span class="visible-xs-inline-block position-right"> Options</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<!-- /main navbar -->
-
 
 	<!-- Page container -->
 	<div class="page-container login-container">
@@ -88,7 +53,7 @@
 						<div class="panel panel-body login-form">
 							<div class="text-center">
 								<div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
-								<h5 class="content-group">Login to your account <small class="display-block">Your credentials</small></h5>
+								<h5 class="content-group">Dam Koto Admin <small class="display-block">Your credentials</small></h5>
 							</div>
 
 							<div class="form-group has-feedback has-feedback-left {{ $errors->has('email') ? ' has-error' : '' }}">
@@ -130,13 +95,6 @@
 						</div>
 					</form>
 					<!-- /advanced login -->
-
-
-					<!-- Footer -->
-					<div class="footer text-muted">
-						&copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
-					</div>
-					<!-- /footer -->
 
 				</div>
 				<!-- /content area -->

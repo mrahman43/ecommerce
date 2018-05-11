@@ -1,20 +1,9 @@
 <ul class="hidden-xs">
   <li class="mt-root demo_custom_link_cms">
-    <div class="mt-root-item"><a href="index.html">
+    <div class="mt-root-item"><a href="{{ route('home')}}">
       <div class="title title_font"><span class="title-text">Home</span></div>
       </a></div>
-    <ul class="menu-items col-md-3 col-sm-4 col-xs-12">
-      <li class="menu-item depth-1">
-        <div class="title"> <a href="index.html"><span>Home Version 1</span></a></div>
-      </li>
-      <li class="menu-item depth-1">
-        <div class="title"> <a href="version2/index.html"><span>Home Version 2</span></a></div>
-      </li>
-      <li class="menu-item depth-1">
-        <div class="title"> <a href="version3/index.html"><span>Home Version 3</span></a></div>
-      </li>
-      </ul>
-  </li>
+    </li>
   <li class="mt-root">
     <div class="mt-root-item"><a href="#">
       <div class="title title_font"><span class="title-text">Page</span></div>

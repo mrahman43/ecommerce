@@ -7,13 +7,7 @@
 </div>
 
 <ul>
-  <li><a href="index.html" class="home1">Home</a>
-    <ul>
-       <li><a href="index.html"><span>Home Version 1</span></a></li>
-      <li><a href="version2/index.html"><span>Home Version 2</span></a></li>
-      <li><a href="version3/index.html"><span>Home Version 3</span></a></li>
-
-        </ul>
+  <li><a href="{{ route('home')}}" class="home1">Home</a>
   </li>
   <li><a href="shop_grid.html">Pages</a>
     <ul>

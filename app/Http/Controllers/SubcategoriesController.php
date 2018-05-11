@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\QueryException;
 use App\Category;
 use App\Subcategory;
 use App\Attribute;
@@ -19,7 +20,7 @@ class SubcategoriesController extends Controller
      {
            $this->middleware('auth:admin');
      }
-     
+
     public function index()
     {
         $subcategories = Subcategory::paginate(5);
@@ -104,7 +105,8 @@ class SubcategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+          $subcategory = Subcategory::find($id);
+          return view('admin.subcategories.show')->withSubcategory($subcategory);
     }
 
     /**
@@ -179,17 +181,30 @@ class SubcategoriesController extends Controller
     public function destroy($id)
     {
         $subcategory = Subcategory::find($id);
-
         try {
           $subcategory->delete();
           Session::flash('success', 'Subcategory deleted successfully!');
         }
         catch(QueryException $e) {
-          Session::flash('warning', 'Failed to perform the operation!');
+          Session::flash('warning', 'Category has one or more dependencies. Failed to perform the operation!');
           return redirect()->route('subcategories.index');
           //dd($e->getMessage());
         }
-
         return redirect()->route('subcategories.index');
     }
+
+    // public function delete_attribute($attribute_id)
+    // {
+    //     $attribute = Attribute::find($attribute_id);
+    //     try {
+    //       $attribute->delete();
+    //       Session::flash('success', 'Attribute deleted successfully!');
+    //     }
+    //     catch(QueryException $e) {
+    //       Session::flash('warning', 'Failed to perform the operation!');
+    //       return redirect()->back();
+    //       //dd($e->getMessage());
+    //     }
+    //     return redirect()->back();
+    // }
 }

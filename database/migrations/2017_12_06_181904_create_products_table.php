@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->double('purchase_price');
             $table->double('price');
@@ -25,6 +25,8 @@ class CreateProductsTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade');
             $table->integer('subcategory_id')->unsigned();
             $table->foreign('subcategory_id')->references('id')->on('subcategories')->onUpdate('cascade');
+            $table->integer('brand_id')->unsigned();
+            $table->foreign('brand_id')->references('id')->on('brands')->onUpdate('cascade');
             $table->integer('active');
             $table->double('tax')->nullable();
             $table->timestamps();

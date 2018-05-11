@@ -60,6 +60,18 @@
             </select>
             </div>
         </div>
+        <div class="form-group">
+            {{ Form::label('type', 'Brand: ', array('class' => 'control-label col-lg-2')) }}
+            <div class="col-lg-10">
+              <select data-placeholder="Select a brand" class="select-search" name="brand_id">
+                <option></option>
+                  @foreach ($brands as $brand)
+                      <option value="{!! $brand->id !!}">{{ $brand->name }}</option>
+                  @endforeach
+                </optgroup>
+              </select>
+            </div>
+        </div>
         {{-- <div class="form-group">
             {{ Form::label('subcategory', 'Subcategory: ', array('class' => 'control-label col-lg-2')) }}
             <div class="col-lg-10">

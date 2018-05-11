@@ -1,12 +1,16 @@
 @extends('layouts.admin.main')
 
+@section('breadcrumb')
+Categories
+@endsection
+
 @section('content')
   <!-- Basic datatable -->
 					<div class="panel panel-white">
 						<div class="panel-heading">
-							<h1 class="panel-title">Category</h1>
+							<h1 class="panel-title">Category List</h1>
 							<div class="heading-elements">
-									{{ Html::linkRoute('categories.create', 'Create', array() ,array('class' => 'btn btn-success')) }}
+									{{ Html::linkRoute('categories.create', 'Create', array() ,array('class' => 'btn btn-success btn-lg')) }}
             	</div>
 						</div>
 						<table class="table datatable-basic">
@@ -29,7 +33,7 @@
 									@endif
 									</td> --}}
                   <td> {{ date('j M Y', strtotime($category->created_at)) }} </td>
-                  <td class="text-center col-lg-2">
+                  <td class="text-center col-md-4">
 										<div class="btn-group btn-group-justified">
 												<div class="btn-group">
 														<a href="{{ route('categories.show', $category->id) }}" class="btn btn-default"><i class="icon-cog position-left"></i> Details</a>

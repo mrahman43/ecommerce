@@ -1,12 +1,20 @@
 @extends('layouts.admin.main')
 
+@section('title')
+| Products
+@endsection
+
+@section('breadcrumb')
+Products
+@endsection
+
 @section('content')
   <!-- Basic datatable -->
 					<div class="panel panel-white">
 						<div class="panel-heading">
-							<h1 class="panel-title">Product</h1>
+							<h1 class="panel-title">Product List</h1>
 							<div class="heading-elements">
-								{{ Html::linkRoute('products.create', 'Create', array() ,array('class' => 'btn btn-success')) }}</li>
+								{{ Html::linkRoute('products.create', 'Create', array() ,array('class' => 'btn btn-success btn-lg')) }}</li>
 
             	</div>
 						</div>
@@ -15,29 +23,32 @@
                 <tr>
 									<th>#</th>
                   <th>Product Name</th>
-                  <th>Description</th>
+                  {{-- <th>Description</th> --}}
                   <th>Image</th>
                   <th>Price</th>
-                  <th>Quantity</th>
+                  <th>Stock</th>
 									<th>Created At</th>
                   <th class="text-center">Actions</th>
                 </tr>
 							</thead>
 							<tbody>
                 @foreach ($products as $product)
-                <tr>
+                <tr class="@if($product->stock < 5) {{ 'danger'}} @endif">
 									<td> {{ $product->id }} </td>
                   <td> {{ $product->name }} </td>
-                  <td> {{ substr($product->description, 0, 75) }} {{ strlen($product -> description) > 50 ? "..." :"" }} </td>
+                  {{-- <td> {{ substr($product->description, 0, 75) }} {{ strlen($product -> description) > 50 ? "..." :"" }} </td> --}}
 									<td> @if($product->image <> NULL)
 						           <img src="{{ asset('images/products/' . $product->image ) }}" height="100" width="100">
 							         @endif
 									</td>
                   <td> {{ $product->purchase_price }} </td>
-                  <td> {{ $product->quantity }} </td>
+                  <td> {{ $product->stock }} </td>
                   <td> {{ date('j M Y', strtotime($product->created_at)) }} </td>
-                  <td class="text-center col-lg-2">
+                  <td class="text-center col-md-4">
 										<div class="btn-group btn-group-justified">
+												<div class="btn-group">
+														<a href="{{ route('products.show', $product->id) }}" class="btn btn-default"><i class="icon-cog position-left"></i> Details</a>
+												</div>
 												<div class="btn-group">
 														<a href="{{ route('products.edit', $product->id) }}" class="btn btn-default"><i class="icon-pencil4 position-left"></i> Edit</a>
 												</div>

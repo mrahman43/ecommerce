@@ -1,5 +1,13 @@
 @extends('layouts.admin.main')
 
+@section('title')
+| Create Subcategory
+@endsection
+
+@section('breadcrumb')
+Subcategories / Create
+@endsection
+
 @section('content')
   <div class="panel panel-white">
 			<div class="panel-heading">
@@ -41,26 +49,30 @@
             {{ Form::label('attribute', 'Attributes: ', array('class' => 'control-label col-lg-2')) }}
             <div class="col-lg-10">
             {{-- {{ Form::text ('attribute', null, array('class' => 'form-control')) }} --}}
-            <a href="#" class="btn btn-primary btn-add-more"> Add New</a>
+            <a href="#" class="btn btn-success btn-lg btn-add-more"> Add</a>
             </div>
         </div>
         <div class="text-right">
             {{-- {{ Html::linkRoute('subcategories.index', '<i class="icon-check position-left"></i>Cancel', array(), array('class' => 'btn btn-default text-left')) }} --}}
-            {{ Form::button('<i class="icon-check position-left"></i>Create', array('type' => 'submit', 'class' => 'btn btn-success')) }}
+            {{ Form::button('<i class="icon-plus position-left"></i>Create', array('type' => 'submit', 'class' => 'btn btn-success')) }}
         </div>
         {{ Form::close() }}
 			</div>
 		</div>
 
     <script>
-      var template = '<div class="form-group">'+
+      var template = '<div class="form-group"><div class="input-group">'+
                         '{{ Form::text ('attribute[]', null, array('class' => 'form-control')) }}'+
-                    '</div>'
+                        '<span class="input-group-btn"><button class="btn btn-danger remove" type="button" name="remove"><i class="icon-bin"></i></button></span>'
+                    '</div></div>'
       $('.btn-add-more').on('click', function (e) {
             e.preventDefault();
             $(this).before(template);
 
       })
+      $(document).on('click', '.remove', function() {
+          $(this).parents('.input-group').remove();
+      });
     </script>
 
 		<!-- /form horizontal -->

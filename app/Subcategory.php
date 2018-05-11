@@ -15,7 +15,7 @@ class Subcategory extends Model
     }
 
     public function product() {
-        return $this->hasOne('App\Product');
+        return $this->hasMany('App\Product');
     }
     public function attribute() {
         return $this->hasOne('App\Attribute');

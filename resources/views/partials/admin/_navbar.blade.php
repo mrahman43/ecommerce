@@ -1,7 +1,7 @@
 <!-- Main navbar -->
 <div class="navbar navbar-inverse">
   <div class="navbar-header">
-    <a class="navbar-brand" href="index.html"><img src="assets/images/logo_light.png" alt=""></a>
+    <a class="navbar-brand" href="index.html"><img src="" alt=""></a>
 
     <ul class="nav navbar-nav visible-xs-block">
       <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
@@ -11,9 +11,9 @@
 
   <div class="navbar-collapse collapse" id="navbar-mobile">
     <ul class="nav navbar-nav">
-      <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+      {{-- <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li> --}}
 
-      <li class="dropdown">
+      {{-- <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <i class="icon-git-compare"></i>
           <span class="visible-xs-inline-block position-right">Git updates</span>
@@ -89,13 +89,13 @@
             <a href="#" data-popup="tooltip" title="All activity"><i class="icon-menu display-block"></i></a>
           </div>
         </div>
-      </li>
+      </li> --}}
     </ul>
 
-    <p class="navbar-text"><span class="label bg-success-400">Online</span></p>
+    {{-- <p class="navbar-text"><span class="label bg-success-400">Online</span></p> --}}
 
     <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown language-switch">
+      {{-- <li class="dropdown language-switch">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <img src="assets/images/flags/gb.png" class="position-left" alt="">
           English
@@ -200,26 +200,23 @@
             <a href="#" data-popup="tooltip" title="All messages"><i class="icon-menu display-block"></i></a>
           </div>
         </div>
-      </li>
+      </li> --}}
 
       <li class="dropdown dropdown-user">
         <a class="dropdown-toggle" data-toggle="dropdown">
           <img src="assets/images/placeholder.jpg" alt="">
-          <span>Victoria</span>
+          <span>Admin</span>
           <i class="caret"></i>
         </a>
 
         <ul class="dropdown-menu dropdown-menu-right">
-          <li><a href="#"><i class="icon-user-plus"></i> My profile</a></li>
-          <li><a href="#"><i class="icon-coins"></i> My balance</a></li>
-          <li><a href="#"><span class="badge bg-teal-400 pull-right">58</span> <i class="icon-comment-discussion"></i> Messages</a></li>
-          <li class="divider"></li>
           <li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
           <li>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-              <a href="javascript:{}" onClick="document.getElementById('logout-form').submit()"><i class="icon-switch2"></i> Logout</a></li>
-              {{ csrf_field() }}
-              </form>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST">
+              <a href="javascript:{}" onClick="document.getElementById('logout-form').submit()"><i class="icon-switch2"></i> Logout</a>
+          </li>
+            {{ csrf_field() }}
+          </form>
         </ul>
       </li>
     </ul>

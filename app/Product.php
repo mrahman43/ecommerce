@@ -15,10 +15,13 @@ class Product extends Model
     public function subcategory() {
         return $this->belongsTo('App\Subcategory');
     }
-    public function status() {
-        return $this->belongsTo('App\Status');
-    }
     public function attributeset() {
         return $this->belongsTo('App\Attributeset');
+    }
+    public function brand() {
+        return $this->belongsTo('App\Brand');
+    }
+    public function shoppingcart() {
+        return $this->hasMany('App\Shoppingcart');
     }
 }

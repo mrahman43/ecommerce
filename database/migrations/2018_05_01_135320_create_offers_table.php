@@ -20,7 +20,7 @@ class CreateOffersTable extends Migration
             $table->date('start_date');
             $table->date('expiration_date');
             $table->integer('product_id')->unsigned();
-            //$table->foreign('product_id')->references('id')->on('products')->onUpdate('cascade');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }

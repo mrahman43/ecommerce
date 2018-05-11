@@ -1,10 +1,18 @@
 @extends('layouts.admin.main')
 
+@section('title')
+| Subcategories
+@endsection
+
+@section('breadcrumb')
+Subcategories
+@endsection
+
 @section('content')
   <!-- Basic datatable -->
 					<div class="panel panel-white">
 						<div class="panel-heading">
-							<h1 class="panel-title">Subcategory</h1>
+							<h1 class="panel-title">Subcategory List</h1>
 							<div class="heading-elements">
 								{{ Html::linkRoute('subcategories.create', 'Create', array() ,array('class' => 'btn btn-success btn-lg')) }}
 							</div>
@@ -14,6 +22,7 @@
                 <tr>
 									<th>#</th>
                   <th>Subcategory Name</th>
+									<th>Category Name</th>
                   <th>Created At</th>
                   <th class="text-center">Actions</th>
                 </tr>
@@ -23,20 +32,21 @@
                 <tr>
 									<td> {{ $subcategory->id }} </td>
                   <td> {{ $subcategory->name }} </td>
+									<td> {{ $subcategory->category->name }} </td>
                   {{-- <td> {{ substr($subcategory->description, 0, 75) }} {{ strlen($subcategory -> description) > 50 ? "..." :"" }} </td>
 									<td> {{ $subcategory->image }} </td> --}}
                   <td> {{ date('j M Y', strtotime($subcategory->created_at)) }} </td>
-                  <td class="text-center col-lg-4">
+                  <td class="text-center col-md-4">
 										<div class="btn-group btn-group-justified">
 											<div class="btn-group">
-													<a href="{{ route('subcategories.show', $subcategory->id) }}" class="btn bg-teal-400"><i class="icon-cog position-left"></i> Details</a>
+													<a href="{{ route('subcategories.show', $subcategory->id) }}" class="btn btn-default"><i class="icon-cog position-left"></i> Details</a>
 											</div>
 											<div class="btn-group">
-													<a href="{{ route('subcategories.edit', $subcategory->id) }}" class="btn btn-info"><i class="icon-pencil4 position-left"></i> Edit</a>
+													<a href="{{ route('subcategories.edit', $subcategory->id) }}" class="btn btn-default"><i class="icon-pencil4 position-left"></i> Edit</a>
 											</div>
 											<div class="btn-group">
 													{{ Form::open(array('route' => array('subcategories.destroy', $subcategory->id), 'method' => 'DELETE', 'onclick' => 'return myFunction();')) }}
-													{{ Form::button('<i class="icon-bin position-left"></i>Delete', array('type' => 'submit', 'class' => 'btn btn-danger')) }}
+													{{ Form::button('<i class="icon-bin position-left"></i>Delete', array('type' => 'submit', 'class' => 'btn btn-default btn-lg')) }}
 													{{ Form::close() }}
 											</div>
 										</div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\QueryException;
 use App\Product;
 use App\Category;
 use App\Subcategory;
@@ -22,7 +23,7 @@ class ProductsController extends Controller
      {
            $this->middleware('auth:admin');
      }
-     
+
     public function index()
     {
         $products = Product::paginate(5);
@@ -68,6 +69,7 @@ class ProductsController extends Controller
         $type_result = explode('|',$request->type);
         $product->category_id = $type_result[0];
         $product->subcategory_id = $type_result[1];
+        $product->brand_id = $request->brand_id;
         $product->active = $request->active;
         if($request->hasFile('image')) {
             $image = $request->file('image');
@@ -84,7 +86,13 @@ class ProductsController extends Controller
         //flash() is a var type inside session, exists for only a single user request
         //to store a var throughout the session use put()
 
-        return redirect()->route('products.attribute', ['$subcategory_id' => $product->subcategory_id, 'product_id' => $product_id]);
+        $attribute = Attribute::where('subcategory_id',$product->subcategory_id)->exists();
+        if($attribute == 1) {
+          return redirect()->route('products.attribute', ['$subcategory_id' => $product->subcategory_id, 'product_id' => $product_id]);
+        }
+        else {
+          return redirect()->route('products.index');
+        }
     }
 
     /**
@@ -93,9 +101,10 @@ class ProductsController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-
+        $product = Product::find($id);
+        return view('admin.products.show')->withProduct($product);
     }
 
     /**
@@ -104,9 +113,10 @@ class ProductsController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+          $product = Product::find($id);
+          return view('admin.products.edit')->withProduct($product);
     }
 
     /**
@@ -116,9 +126,42 @@ class ProductsController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, array(
+          'name' => 'required|max:255',
+          'purchase_price' => 'required',
+          'stock' => 'required',
+          'type' => 'required',
+        )); //returns to request page if validation failed with the errors stored in the variable $errors
+
+        // store in database
+        $product = Product::find($id);   //create new instance
+        $product->name = $request->input('name');
+        $product->description = $request->input('description');
+        $product->purchase_price = $request->input('purchase_price');
+        $product->price = $request->input('price');
+        $product->tax = $request->input('tax');
+        $product->stock = $request->input('stock');
+        // $product->category_id = $request->category_id;
+        // $product->subcategory_id = $request->subcategory_id;
+        $type_result = explode('|',$request->input('type'));
+        $product->category_id = $type_result[0];
+        $product->subcategory_id = $type_result[1];
+        $product->brand_id = $request->input('brand_id');
+        $product->active = $request->input('active');
+        if($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/products/' . $filename);
+            Image::make($image)->resize(800,800)->save($location);
+            $product->image = $filename;
+        }
+        $product->save();
+
+        Session::flash('success', 'Product updated successfully!');
+
+        return redirect()->route('products.index');
     }
 
     /**
@@ -127,9 +170,19 @@ class ProductsController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        try {
+          $product->delete();
+          Session::flash('success', 'Product deleted successfully!');
+        }
+        catch(QueryException $e) {
+          Session::flash('warning', 'Product has one or more dependencies. Failed to perform the operation!');
+          return redirect()->route('products.index');
+          //dd($e->getMessage());
+        }
+        return redirect()->route('products.index');
     }
     public function attribute($subcategory_id, $product_id)
     {

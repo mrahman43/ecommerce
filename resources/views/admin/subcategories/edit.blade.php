@@ -1,5 +1,13 @@
 @extends('layouts.admin.main')
 
+@section('title')
+| Edit Subcategory
+@endsection
+
+@section('breadcrumb')
+Subcategories / Edit
+@endsection
+
 @section('content')
   <div class="panel panel-white">
 			<div class="panel-heading">
@@ -45,8 +53,11 @@
           <div class="col-lg-10">
           @foreach ($attributes as $attribute)
             <div class="form-group">
-            {{ Form::text ('attribute_name[]', $attribute->name, array('class' => 'form-control')) }}
-            {{ Form::hidden('attribute_id[]',  $attribute->id) }}
+              {{-- <div class="input-group"> --}}
+              {{ Form::text ('attribute_name[]', $attribute->name, array('class' => 'form-control')) }}
+              {{ Form::hidden('attribute_id[]',  $attribute->id) }}
+              {{-- <span class="input-group-btn"><a href="{{ route(['subcategories.attribute.delete', $attribute->id])}}" class="btn btn-danger remove" type="button" name="remove"><i class="icon-bin"></i></a></span> --}}
+              {{-- </div> --}}
           </div>
           @endforeach
           <a href="#" class="btn btn-primary btn-add-more"> Add New</a>
@@ -61,7 +72,7 @@
 			</div>
 		</div>
 
-    <script>
+    {{-- <script>
       var template = '<div class="form-group">'+
                         '{{ Form::text ('attribute[]', null, array('class' => 'form-control')) }}'+
                     '</div>'
@@ -69,7 +80,20 @@
           e.preventDefault();
           $(this).before(template);
         })
-    </script>
+    </script> --}}
+    <script>
+        var template = '<div class="form-group"><div class="input-group">'+
+                          '{{ Form::text ('attribute[]', null, array('class' => 'form-control')) }}'+
+                          '<span class="input-group-btn"><button class="btn btn-danger remove" type="button" name="remove"><i class="icon-bin"></i></button></span>'
+                      '</div></div>'
+        $('.btn-add-more').on('click', function (e) {
+              e.preventDefault();
+              $(this).before(template);
 
+        })
+        $(document).on('click', '.remove', function() {
+            $(this).parents('.input-group').remove();
+        });
+    </script>
 		<!-- /form horizontal -->
 @endsection

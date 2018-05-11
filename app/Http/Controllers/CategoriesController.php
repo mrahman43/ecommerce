@@ -19,7 +19,7 @@ class CategoriesController extends Controller
      {
            $this->middleware('auth:admin');
      }
-     
+
     public function index()
     {
       $categories = Category::paginate(5);
@@ -142,12 +142,10 @@ class CategoriesController extends Controller
           Session::flash('success', 'Category deleted successfully!');
         }
         catch(QueryException $e) {
-          Session::flash('warning', 'Failed to perform the operation!');
+          Session::flash('warning', 'Category has one or more dependencies. Failed to perform the operation!');
           return redirect()->route('categories.index');
           //dd($e->getMessage());
         }
-
         return redirect()->route('categories.index');
-
     }
 }

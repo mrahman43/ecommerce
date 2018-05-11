@@ -1,16 +1,13 @@
 @extends('layouts.admin.main')
 
+@section('breadcrumb')
+Categories / Show
+@endsection
+
 @section('content')
-  <div class="panel panel-flat">
+  <div class="panel panel-white">
 			<div class="panel-heading">
 				<h1 class="panel-title">Show Category Details</h1>
-				<div class="heading-elements">
-					<ul class="icons-list">
-        		<li><a data-action="collapse"></a></li>
-        		<li><a data-action="reload"></a></li>
-        		<li><a data-action="close"></a></li>
-        	</ul>
-      	</div>
 			</div>
 
 			<div class="panel-body">
@@ -24,7 +21,12 @@
                 <div class="form-group">
                   {{ Form::label('description', 'Description: ', array('class' => 'control-label col-lg-2')) }}
                   <div class="col-lg-10">
-                  <p>{!! $category->description !!} </p>
+                  <p>@if($category->description <> NULL)
+                    {!! $category->description !!}
+                  @else
+                    N/A
+                  @endif
+                  </p>
                 </div>
               </div>
               <div class="form-group">
@@ -40,8 +42,8 @@
               </div>
               <div class="text-right">
                   {{-- <a href="{{ route('categories.index') }}" class="btn btn-default">Cancel</a> --}}
-                  {{ Html::linkRoute('categories.index', 'Back', array(), array('class' => 'btn btn-default text-left')) }}
-                  {{ Html::linkRoute('categories.edit', 'Edit', array($category->id), array('class' => 'btn btn-primary text-left')) }}
+                  {{ Html::linkRoute('categories.index', 'Back', array(), array('class' => 'btn btn-default btn-lg')) }}
+                  {{ Html::linkRoute('categories.edit', 'Edit', array($category->id), array('class' => 'btn btn-primary btn-lg')) }}
               </div>
             <div class="col-lg-4">
             </div>

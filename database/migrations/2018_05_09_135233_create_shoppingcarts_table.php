@@ -16,13 +16,11 @@ class CreateShoppingcartsTable extends Migration
         Schema::create('shoppingcarts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id')->unsigned();
-            //$table->foreign('product_id')->references('id')->on('products')->onUpdate('cascade');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->integer('quantity');
             $table->double('price')->unsigned();
-            //$table->foreign('price')->references('price')->on('products');
-            // $table->integer('price');
             $table->integer('order_id')->unsigned();
-            //$table->foreign('order_id')->references('id')->on('orders')->onUpdate('cascade');
+            $table->foreign('order_id')->references('id')->on('orders')->onUpdate('cascade');
             $table->timestamps();
         });
     }

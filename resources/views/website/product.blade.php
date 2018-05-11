@@ -61,7 +61,8 @@
                 <p>{{ $product->description }}</p>
               </div>
               <div class="product-variation">
-                <form action="{{ route('cart.store') }}" method="post">
+                {{ Form::open(array('route' => 'cart.store', 'files' => true, 'action' => '#')) }}
+                {{-- <form action="{{ route('cart.store') }}" method="post"> --}}
                   <div class="cart-plus-minus">
                     <label for="qty">Quantity:</label>
                     <div class="numbers-row">
@@ -72,13 +73,12 @@
                     </div>
                   </div>
                   <button class="button pro-add-to-cart" title="Add to Cart" type="submit"><span><i class="fa fa-shopping-cart"></i> Add to Cart</span></button>
-                </form>
+                {{ Form::close() }}
               </div>
               <div class="product-cart-option">
                 <ul>
                   <li><a href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a></li>
                   <li><a href="#"><i class="fa fa-retweet"></i><span>Add to Compare</span></a></li>
-                  <li><a href="#"><i class="fa fa-envelope"></i><span>Email to a Friend</span></a></li>
                 </ul>
               </div>
             </div>

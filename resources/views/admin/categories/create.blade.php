@@ -1,5 +1,9 @@
 @extends('layouts.admin.main')
 
+@section('breadcrumb')
+Categories / Create
+@endsection
+
 @section('content')
   <div class="panel panel-white">
 			<div class="panel-heading">
@@ -7,7 +11,6 @@
 			</div>
 
 			<div class="panel-body">
-
         {{ Form::open(array('route' => 'categories.store', 'files' => true, 'class' => 'form-horizontal form-validate-jquery', 'action' => '#')) }}
           <div class="form-group">
             {{ Form::label('name', 'Category Name: ', array('class' => 'control-label col-lg-2')) }}

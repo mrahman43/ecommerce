@@ -10,7 +10,7 @@
       <div class="mega-menu-category">
         <ul class="nav">
           @foreach ($categories as $category)
-            <li> <a href="{{route('category', $category->id) }}"><i class="icon fa fa-female fa-fw"></i> {{ $category->name }}</a>
+            <li> <a href="{{route('category', $category->id) }}"> {{ $category->name }}</a>
               <div class="wrap-popup">
                 <div class="popup">
                   <div class="row">

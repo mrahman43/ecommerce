@@ -5,6 +5,7 @@ Dam Koto | Home
 @endsection
 
 @section('content')
+    @if($website->homepage_slider == 1)
     <div class="main-slideshow">
       <div class="home-slider">
         <div class="wpb_wrapper">
@@ -129,6 +130,7 @@ Dam Koto | Home
             <!-- END REVOLUTION SLIDER --></div>
         </div>
       </div>
+    @endif
       <!-- .fullwidth-slider -->
 
       <!-- .slide-slider-nav -->

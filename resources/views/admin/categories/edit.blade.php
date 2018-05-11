@@ -1,5 +1,9 @@
 @extends('layouts.admin.main')
 
+@section('breadcrumb')
+Categories / Edit
+@endsection
+
 @section('content')
   <div class="panel panel-white">
 			<div class="panel-heading">
