@@ -33,6 +33,12 @@ Route::prefix('admin')->group(function () {
 
 });
 
+Route::get('/review/add', 'PagesController@addReview')->name('review.add');
+Route::get('/wishlist/{id}/delete', 'PagesController@removeWishlist')->name('wishlist.remove');
+Route::get('/wishlist/{id}', 'PagesController@addWishlist')->name('wishlist.add');
+Route::get('/wishlist', 'PagesController@wishlist')->name('wishlist');
+Route::post('/search', 'PagesController@search')->name('search');
+Route::post('/checkout', 'PagesController@placeorder')->name('order');
 Route::get('/checkout', 'PagesController@checkout')->name('checkout');
 Route::get('/product/{product_id}', 'PagesController@product')->name('product');
 // Route::get('/order', 'PagesController@order')->name('order');

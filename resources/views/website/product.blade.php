@@ -1,22 +1,15 @@
 @extends('layouts.website.main')
 
-@section('content')
-  <!-- Breadcrumbs -->
+@section('title')
+Dam Koto | Product
+@endsection
 
-  <div class="breadcrumbs">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <ul>
-            <li class="home"> <a title="Go to Home Page" href="index.html">Home</a><span>&raquo;</span></li>
-            <li class=""> <a title="Go to Home Page" href="shop_grid.html">Living Rooms</a><span>&raquo;</span></li>
-            <li><strong>Lorem Ipsum is simply</strong></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Breadcrumbs End -->
+@section('breadcrumb')
+Product
+@endsection
+
+
+@section('content')
   <!-- Main Container -->
   <div class="main-container col1-layout">
     <div class="container">
@@ -45,7 +38,7 @@
               </div>
               <div class="price-box">
                 {{-- <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $329.99 </span> </p> --}}
-                <p class="special-price"> <span class="price-label">Regular Price:</span> <span class="price"> {{ $product->price }}/- BDT </span> </p>
+                <p class="special-price"> <span class="price-label">Regular Price:</span> <span class="price"> {{ $product->price - $product->offer->reduction }}/- BDT </span> </p>
               </div>
               <div class="ratings">
                 <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
@@ -77,7 +70,7 @@
               </div>
               <div class="product-cart-option">
                 <ul>
-                  <li><a href="#"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a></li>
+                  <li><a href="{{ route('wishlist.add',$product->id)}}"><i class="fa fa-heart"></i><span>Add to Wishlist</span></a></li>
                   <li><a href="#"><i class="fa fa-retweet"></i><span>Add to Compare</span></a></li>
                 </ul>
               </div>
@@ -109,79 +102,46 @@
                       <div class="col-sm-5 col-lg-5 col-md-5">
                         <div class="reviews-content-left">
                           <h2>Customer Reviews</h2>
-                          <div class="review-ratting">
-                            <p><a href="#">Amazing</a> Review by Company</p>
-                            <table>
-                              <tbody>
-                                <tr>
-                                  <th>Price</th>
-                                  <td><div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div></td>
-                                </tr>
-                                <tr>
-                                  <th>Value</th>
-                                  <td><div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div></td>
-                                </tr>
-                                <tr>
-                                  <th>Quality</th>
-                                  <td><div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div></td>
-                                </tr>
-                              </tbody>
-                            </table>
-                            <p class="author"> Angela Mack<small> (Posted on 16/12/2015)</small> </p>
-                          </div>
-                          <div class="review-ratting">
-                            <p><a href="#">Good!!!!!</a> Review by Company</p>
-                            <table>
-                              <tbody>
-                                <tr>
-                                  <th>Price</th>
-                                  <td><div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div></td>
-                                </tr>
-                                <tr>
-                                  <th>Value</th>
-                                  <td><div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div></td>
-                                </tr>
-                                <tr>
-                                  <th>Quality</th>
-                                  <td><div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div></td>
-                                </tr>
-                              </tbody>
-                            </table>
-                            <p class="author"> Lifestyle<small> (Posted on 20/12/2015)</small> </p>
-                          </div>
-                          <div class="review-ratting">
-                            <p><a href="#">Excellent</a> Review by Company</p>
-                            <table>
-                              <tbody>
-                                <tr>
-                                  <th>Price</th>
-                                  <td><div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div></td>
-                                </tr>
-                                <tr>
-                                  <th>Value</th>
-                                  <td><div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div></td>
-                                </tr>
-                                <tr>
-                                  <th>Quality</th>
-                                  <td><div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div></td>
-                                </tr>
-                              </tbody>
-                            </table>
-                            <p class="author"> Jone Deo<small> (Posted on 25/12/2015)</small> </p>
-                          </div>
+                          @foreach ($reviews as $review)
+                            <div class="review-ratting">
+                              <p>{{ $review->description }}</p>
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <div class="rating">
+                                        <?php
+                                        for($j=1; $j<=5 ; $j++) {
+                                          if($j <= $review->rating ) {
+                                            echo "<i class='fa fa-star'></i>";
+                                          } else {
+                                            echo "<i class='fa fa-star-o'></i>";
+                                          }
+                                        } ?>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  </tbody>
+                              </table>
+                              <p class="author"> {{ $review->user->name }}<small> (Posted on {{ $review->created_at }})</small> </p>
+                            </div>
+
+                          @endforeach
+
                         </div>
                       </div>
+                      @guest
+                      @else
                       <div class="col-sm-7 col-lg-7 col-md-7">
                         <div class="reviews-content-right">
                           <h2>Write Your Own Review</h2>
-                          <form>
-                            <h3>You're reviewing: <span>Donec Ac Tempus</span></h3>
+                          <form action="{{ route('review.add')}}" method="GET">
+                            <h3>You're reviewing: <span>{{ $product->name}}</span></h3>
                             <h4>How do you rate this product?<em>*</em></h4>
                             <div class="table-responsive reviews-table">
                               <table>
                                 <tbody>
                                   <tr>
-                                    <th></th>
                                     <th>1 star</th>
                                     <th>2 stars</th>
                                     <th>3 stars</th>
@@ -189,44 +149,20 @@
                                     <th>5 stars</th>
                                   </tr>
                                   <tr>
-                                    <td>Quality</td>
-                                    <td><input type="radio"></td>
-                                    <td><input type="radio"></td>
-                                    <td><input type="radio"></td>
-                                    <td><input type="radio"></td>
-                                    <td><input type="radio"></td>
-                                  </tr>
-                                  <tr>
-                                    <td>Price</td>
-                                    <td><input type="radio"></td>
-                                    <td><input type="radio"></td>
-                                    <td><input type="radio"></td>
-                                    <td><input type="radio"></td>
-                                    <td><input type="radio"></td>
-                                  </tr>
-                                  <tr>
-                                    <td>Value</td>
-                                    <td><input type="radio"></td>
-                                    <td><input type="radio"></td>
-                                    <td><input type="radio"></td>
-                                    <td><input type="radio"></td>
-                                    <td><input type="radio"></td>
+                                    <td><input type="radio" name="rating" value="1"></td>
+                                    <td><input type="radio" name="rating" value="2"></td>
+                                    <td><input type="radio" name="rating" value="3"></td>
+                                    <td><input type="radio" name="rating" value="4"></td>
+                                    <td><input type="radio" name="rating" value="5"></td>
                                   </tr>
                                 </tbody>
                               </table>
                             </div>
                             <div class="form-area">
                               <div class="form-element">
-                                <label>Nickname <em>*</em></label>
-                                <input type="text">
-                              </div>
-                              <div class="form-element">
-                                <label>Summary of Your Review <em>*</em></label>
-                                <input type="text">
-                              </div>
-                              <div class="form-element">
                                 <label>Review <em>*</em></label>
-                                <textarea></textarea>
+                                <textarea name='description'></textarea>
+                                <input type="hidden" name="product_id" value="1">
                               </div>
                               <div class="buttons-set">
                                 <button class="button submit" title="Submit Review" type="submit"><span><i class="fa fa-thumbs-up"></i> &nbsp;Review</span></button>
@@ -235,6 +171,7 @@
                           </form>
                         </div>
                       </div>
+                      @endguest
                     </div>
                     {{-- <div class="tab-pane fade" id="product_tags">
                       <div class="box-collateral box-tags">
@@ -279,5 +216,56 @@
   </div>
 
   <!-- Main Container End -->
+  <!-- Related Product Slider -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="related-product-area">
+        <div class="page-header">
+          <h2>Related Products</h2>
+        </div>
+        <div class="related-products-pro">
+          <div class="slider-items-products">
+            <div id="related-product-slider" class="product-flexslider hidden-buttons">
+              <div class="slider-items slider-width-col4">
+                @foreach ($products as $data)
+                  @if($data->subcategory_id == $product->subcategory_id && $data->id <> $product->id)
+                  <div class="product-item">
+                    <div class="item-inner">
+                      <div class="product-thumb has-hover-img">
+                        <figure> <a title="Ipsums Dolors Untra" href="single_product.html"> <img class="first-img" src="images/products/img15.jpg" alt=""> </a></figure>
+                        <div class="pr-info-area animated animate2"><a href="quick_view.html" class="quick-view"><i class="fa fa-search"><span>Quick view</span></i></a> <a href="wishlist.html" class="wishlist"><i class="fa fa-heart"><span>Wishlist</span></i></a> <a href="compare.html" class="compare"><i class="fa fa-exchange"><span>Compare</span></i></a> </div>
+                      </div>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title"> <h4><a title="Ipsums Dolors Untra" href="{{ route('product', $product->id)}}">{{ $data->name }} </a></h4> </div>
+                          <div class="item-content">
+                            <div class="item-price">
+                              <div class="price-box">
+                                <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> {{ $data->price }} </span> </p>
+                              </div>
+                            </div>
+                            <div class="pro-action">
+                              {{ Form::open(['route' => ['product', $product->id], 'method' => 'GET'])}}
+                              <button type="button" class="add-to-cart-mt"> <i class="fa fa-shopping-cart"></i><span> Add to Cart</span> </button>
+                              {{ Form::close()}}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  @endif
+                @endforeach
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Related Product Slider End -->
 
 @endsection

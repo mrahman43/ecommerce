@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('shipping_address')->nullable();
+            $table->string('telephone')->nullable();
             $table->integer('payment_id')->unsigned()->nullable();
             $table->foreign('payment_id')->references('id')->on('payments')->onUpdate('cascade');
             $table->integer('status');

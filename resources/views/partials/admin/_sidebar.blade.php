@@ -33,27 +33,28 @@
         <ul class="navigation navigation-main navigation-accordion">
 
           <!-- Main -->
-          <li class="navigation-header"><span>Dashboard</span> <i class="icon-menu" title="Main pages"></i></li>
-          <li ><a href="{{ route('admin.dashboard') }}"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
-          <li ><a href="{{ route('admin.dashboard') }}"><i class="icon-home4"></i> <span>Sales Report</span></a></li>
-          <li class="navigation-header"><span>Product Control</span> <i class="icon-menu" title="Main pages"></i></li>
+          <li class="navigation-header"><span>Dashboard</span> <i class="" title="Main pages"></i></li>
+          <li ><a href="{{ route('admin.dashboard') }}"><i class=""></i> <span>Dashboard</span></a></li>
+          <li ><a href="{{ route('admin.dashboard') }}"><i class=""></i> <span>Sales Report</span></a></li>
+          <li class="navigation-header"><span>Product Control</span> <i class="" title="Main pages"></i></li>
           <li class="">
-            <a href="{{ route('categories.index') }}"><i class="icon-pencil"></i> <span>Category</span></a>
+            <a href="{{ route('categories.index') }}"><i class=""></i> <span>Category</span></a>
           </li>
           <li class="">
-            <a href="{{ route('subcategories.index') }}"><i class="icon-stack2"></i> <span>Subcategory</span></a>
+            <a href="{{ route('subcategories.index') }}"><i class=""></i> <span>Subcategory</span></a>
           </li>
           <li class="">
-            <a href="{{ route('brands.index') }}"><i class="icon-stack2"></i> <span>Brands</span></a>
+            <a href="{{ route('brands.index') }}"><i class=""></i> <span>Brands</span></a>
           </li>
           <li class="">
-            <a href="{{ route('products.index') }}"><i class="icon-office"></i> <span>Product</span></a>
+            <a href="{{ route('products.index') }}"><i class=""></i> <span>Product</span></a>
           </li>
-          <li class="navigation-header"><span>Website Customizations</span> <i class="icon-menu" title="Main pages"></i></li>
-          <li ><a href="{{ route('admin.website.homepage') }}"><i class="icon-home4"></i> <span>Homepage</span></a></li>
-          <li class="navigation-header"><span>Accounts</span> <i class="icon-menu" title="Main pages"></i></li>
-          <li ><a href="{{ route('admin.dashboard') }}"><i class="icon-home4"></i> <span>Users</span></a></li>
-          <li ><a href="{{ route('admin.dashboard') }}"><i class="icon-home4"></i> <span>Employees</span></a></li>
+          <li class="navigation-header"><span>Website Customizations</span> <i class="" title="Main pages"></i></li>
+          <li ><a href="{{ route('admin.website.homepage') }}"><i class=""></i> <span>Homepage</span></a></li>
+          <li class="navigation-header"><span>Accounts</span> <i class="" title="Main pages"></i></li>
+          <li ><a href="{{ route('admin.dashboard') }}"><i class=""></i> <span>Users</span></a></li>
+          <li class="navigation-header"><span>Email Marketing</span> <i class="" title="Main pages"></i></li>
+          <li ><a href="{{ route('admin.mail.get') }}"><i class=""></i> <span>Users</span></a></li>
         </ul>
       </div>
     </div>

@@ -22,7 +22,7 @@ Dam Koto | Cart
               @if(count($shoppingcarts) == 0)
               <h3> You currently don't have any items in the cart!</h3>
               <div class="cart_navigation"> <a class="continue-btn" href="{{route('home')}}"><i class="fa fa-arrow-left"> </i>&nbsp; Continue shopping</a> </div>
-              
+
               @else
               <div class="table-responsive">
                 <table class="table table-bordered cart_summary">
@@ -46,7 +46,7 @@ Dam Koto | Cart
                         <td class="availability in-stock"><span class="label">In stock</span></td>
                         <td class="price"><span> {{ $shoppingcart->price }}</span></td>
                         <td class="qty"><input class="form-control input-sm" type="text" value="{{ $shoppingcart->quantity }}"></td>
-                        <td class="price"><span>{{{ $shoppingcart->price *  $shoppingcart->quantity}}}</span></td>
+                        <td class="price"><span>{{ $shoppingcart->price *  $shoppingcart->quantity}}</span></td>
                         <td class="action"><a href="{{ route('cart.delete',$shoppingcart->id) }}"><i class="icon-close"></i></a></td>
                       </tr>
                       @endforeach
@@ -86,7 +86,7 @@ Dam Koto | Cart
                   </tfoot>
                 </table>
               </div>
-              <div class="cart_navigation"> <a class="continue-btn" href="#"><i class="fa fa-arrow-left"> </i>&nbsp; Continue shopping</a> <a class="checkout-btn" href="{{ route('checkout') }}"><i class="fa fa-check"></i> Proceed to checkout</a> </div>
+              <div class="cart_navigation"> <a class="continue-btn" href="{{ route('home')}}"><i class="fa fa-arrow-left"> </i>&nbsp; Continue shopping</a> <a class="checkout-btn" href="{{ route('checkout') }}"><i class="fa fa-check"></i> Proceed to checkout</a> </div>
             @endif
             </div>
           </div>

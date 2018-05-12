@@ -6,7 +6,7 @@ Dam Koto | Home
 
 @section('content')
     @if($website->homepage_slider == 1)
-    <div class="main-slideshow">
+    {{-- <div class="main-slideshow">
       <div class="home-slider">
         <div class="wpb_wrapper">
           <div class="wpb_revslider_element wpb_content_element">
@@ -64,7 +64,7 @@ Dam Koto | Home
                    <div class="tp-caption black skewfromright tp-resizeme" data-x="center" data-hoffset="-200" data-y="center" data-voffset="90" data-speed="300" data-start="1600" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="300" style="z-index: 11; max-width: auto; max-height: auto; white-space: nowrap;"> <a href="#" class="btn outline btn-color" style=" background: #1267b3;padding: 12px 25px 10px; font-size: 17px; text-transform: uppercase; margin-right:15px" target="_blank">View Collection</a> <a href="#" class="btn outline btn-white" style="font-size: 17px; padding:12px 25px 10px; background-color:#fff; text-transform:uppercase; " target="_blank">Buy now</a> </div>
                   </li>
 
-                  {{-- <!-- SLIDE  -->
+                  <!-- SLIDE  -->
                   <li data-index="rs-15" data-transition="3dcurtain-horizontal,3dcurtain-vertical,cube,cube-horizontal" data-slotamount="7,7,7,7"  data-easein="default,default,default,default" data-easeout="default,default,default,default" data-masterspeed="600,600,600,600"  data-rotate="0,0,0,0"  data-saveperformance="off"  data-title="Slide-8" data-description="">
                     <!-- MAIN IMAGE -->
                     <img src="{!! asset('website/images/slider/slider-bg3.jpg') !!}"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
@@ -92,7 +92,7 @@ Dam Koto | Home
                     </div>
                     <!-- LAYER NR. 7 -->
                     <div class="tp-caption black skewfromright tp-resizeme" data-x="center" data-hoffset="0" data-y="center" data-voffset="130" data-speed="300" data-start="1600" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="300" style="z-index: 11; max-width: auto; max-height: auto; white-space: nowrap;"> <a href="#" class="btn outline btn-color" style=" background: #1267b3;padding: 12px 25px 10px; font-size: 17px; text-transform: uppercase; margin-right:15px" target="_blank">View more</a> <a href="#" class="btn outline btn-white" style="font-size: 17px; padding:12px 25px 10px; background-color:#fff; text-transform:uppercase; " target="_blank">Buy now</a> </div>
-                  </li> --}}
+                  </li>
                   <!-- SLIDE  -->
                   <li data-index="rs-12" data-transition="3dcurtain-horizontal,3dcurtain-vertical,cube,cube-horizontal" data-slotamount="7,7,7,7"  data-easein="default,default,default,default" data-easeout="default,default,default,default" data-masterspeed="600,600,600,600"  data-rotate="0,0,0,0"  data-saveperformance="off"  data-title="Slide-8" data-description="">
                     <!-- MAIN IMAGE -->
@@ -130,47 +130,14 @@ Dam Koto | Home
             <!-- END REVOLUTION SLIDER --></div>
         </div>
       </div>
-    @endif
+
       <!-- .fullwidth-slider -->
 
       <!-- .slide-slider-nav -->
-    </div>
+    </div> --}}
+      @endif
     <!-- End home section -->
     <!-- service section -->
-
-    <div class="jtv-service-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-sm-4 col-xs-12">
-            <div class="jtv-service">
-              <div class="ser-icon"> <i class="fa fa-truck flip-horizontal"></i> </div>
-              <div class="service-content">
-                <h5>FREE SHIPPING WORLDWIDE </h5>
-                <p>free ship-on oder over $299.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-sm-4 col-xs-12">
-            <div class="jtv-service">
-              <div class="ser-icon"> <i class="fa fa-mail-forward"></i> </div>
-              <div class="service-content">
-                <h5>MONEY BACK GUARATEE! </h5>
-                <p>30 days money back guarantee!</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-sm-4 col-xs-12">
-            <div class="jtv-service">
-              <div class="ser-icon"> <i class="fa fa-comments flip-horizontal"></i> </div>
-              <div class="service-content">
-                <h5>24/7 CUSTOMER SERVICE </h5>
-                <p>We support online 24 hours a day</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!--special-products-->
 
@@ -183,169 +150,35 @@ Dam Koto | Home
           <div class="slider-items-products">
             <div id="special-products-slider" class="product-flexslider hidden-buttons">
               <div class="slider-items slider-width-col4">
-                <div class="product-item">
-                  <div class="item-inner">
-                    <div class="product-thumb has-hover-img"> <a title="Ipsums Dolors Untra" href="single_product.html">
-                      <figure> <img src="images/products/img10.jpg" alt=""> <img class="hover-img" src="images/products/img01.jpg" alt=""></figure>
-                      </a>
-                      <div class="pr-info-area animated animate2"><a href="quick_view.html" class="quick-view"><i class="fa fa-search"><span>Quick view</span></i></a> <a href="wishlist.html" class="wishlist"><i class="fa fa-heart"><span>Wishlist</span></i></a> <a href="compare.html" class="compare"><i class="fa fa-exchange"><span>Compare</span></i></a> </div>
-                    </div>
-                    <div class="item-info">
-                      <div class="info-inner">
-                        <div class="item-title">
-                          <h4><a title="Ipsums Dolors Untra" href="single_product.html">Ipsums Dolors Untra </a></h4>
-                        </div>
-                        <div class="item-content">
-                          <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                          <div class="item-price">
-                            <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
-                          </div>
-                          <div class="pro-action">
-                            <button type="button" class="add-to-cart-mt"> <i class="fa fa-shopping-cart"></i><span> Add to Cart</span> </button>
-                          </div>
-                        </div>
+                @foreach ($offers as $offer)
+                  <div class="product-item">
+                    <div class="item-inner">
+                      <div class="product-thumb has-hover-img"> <a title="Ipsums Dolors Untra" href="single_product.html">
+                        <figure> <img src="{{ asset('images/products/' . $offer->product->image) }}" alt=""></figure>
+                        </a>
+                        <div class="pr-info-area animated animate2"><a href="quick_view.html" class="quick-view"><i class="fa fa-search"><span>Quick view</span></i></a> <a href="wishlist.html" class="wishlist"><i class="fa fa-heart"><span>Wishlist</span></i></a> <a href="compare.html" class="compare"><i class="fa fa-exchange"><span>Compare</span></i></a> </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="product-item">
-                  <div class="item-inner">
-                    <div class="product-thumb has-hover-img"> <a title="Ipsums Dolors Untra" href="single_product.html">
-                      <figure> <img class="first-img" src="images/products/img13.jpg" alt=""> <img class="hover-img" src="images/products/img03.jpg" alt=""></figure>
-                      </a>
-                      <div class="pr-info-area animated animate2"><a href="quick_view.html" class="quick-view"><i class="fa fa-search"><span>Quick view</span></i></a> <a href="wishlist.html" class="wishlist"><i class="fa fa-heart"><span>Wishlist</span></i></a> <a href="compare.html" class="compare"><i class="fa fa-exchange"><span>Compare</span></i></a> </div>
-                    </div>
-                    <div class="item-info">
-                      <div class="info-inner">
-                        <div class="item-title">
-                          <h4><a title="Ipsums Dolors Untra" href="single_product.html">Ipsums Dolors Untra </a></h4>
-                        </div>
-                        <div class="item-content">
-                          <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                          <div class="item-price">
-                            <div class="price-box">
-                              <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $456.00 </span> </p>
-                              <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $567.00 </span> </p>
+                      <div class="item-info">
+                        <div class="info-inner">
+                          <div class="item-title">
+                            <h4><a title="Ipsums Dolors Untra" href="single_product.html">{{ $offer->product->name}} </a></h4>
+                          </div>
+                          <div class="item-content">
+                            <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                            <div class="item-price">
+                              <div class="price-box"> <span class="regular-price"> <span class="price">{{ $offer->product->price - $offer->reduction}}</span> </span> </div>
                             </div>
                             <div class="pro-action">
-                              <button type="button" class="add-to-cart-mt"> <i class="fa fa-shopping-cart"></i><span> Add to Cart</span> </button>
+                              {{ Form::open(['route' => ['product', $offer->product->id], 'method' => 'GET'])}}
+                              <button type="submit" class="add-to-cart-mt"> <i class="fa fa-shopping-cart"></i><span> Add to Cart</span> </button>
+                              {{ Form::close()}}
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="product-item">
-                  <div class="item-inner">
-                    <div class="product-thumb has-hover-img"> <a title="Ipsums Dolors Untra" href="single_product.html">
-                      <figure> <img class="first-img" src="images/products/img09.jpg" alt=""> <img class="hover-img" src="images/products/img05.jpg" alt=""></figure>
-                      </a>
-                      <div class="pr-info-area animated animate2"><a href="quick_view.html" class="quick-view"><i class="fa fa-search"><span>Quick view</span></i></a> <a href="wishlist.html" class="wishlist"><i class="fa fa-heart"><span>Wishlist</span></i></a> <a href="compare.html" class="compare"><i class="fa fa-exchange"><span>Compare</span></i></a> </div>
-                    </div>
-                    <div class="item-info">
-                      <div class="info-inner">
-                        <div class="item-title">
-                          <h4><a title="Ipsums Dolors Untra" href="single_product.html">Ipsums Dolors Untra </a></h4>
-                        </div>
-                        <div class="item-content">
-                          <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                          <div class="item-price">
-                            <div class="price-box">
-                              <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $456.00 </span> </p>
-                              <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $567.00 </span> </p>
-                            </div>
-                          </div>
-                          <div class="pro-action">
-                            <button type="button" class="add-to-cart-mt"> <i class="fa fa-shopping-cart"></i><span> Add to Cart</span> </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="product-item">
-                  <div class="item-inner">
-                    <div class="icon-sale-label sale-left">Sale</div>
-                    <div class="icon-new-label new-right">New</div>
-                    <div class="product-thumb has-hover-img"> <a title="Ipsums Dolors Untra" href="single_product.html">
-                      <figure> <img class="first-img" src="images/products/img12.jpg" alt=""> <img class="hover-img" src="images/products/img06.jpg" alt=""></figure>
-                      </a>
-                      <div class="pr-info-area animated animate2"><a href="quick_view.html" class="quick-view"><i class="fa fa-search"><span>Quick view</span></i></a> <a href="wishlist.html" class="wishlist"><i class="fa fa-heart"><span>Wishlist</span></i></a> <a href="compare.html" class="compare"><i class="fa fa-exchange"><span>Compare</span></i></a> </div>
-                    </div>
-                    <div class="item-info">
-                      <div class="info-inner">
-                        <div class="item-title">
-                          <h4><a title="Ipsums Dolors Untra" href="single_product.html">Ipsums Dolors Untra </a></h4>
-                        </div>
-                        <div class="item-content">
-                          <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                          <div class="item-price">
-                            <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
-                          </div>
-                          <div class="pro-action">
-                            <button type="button" class="add-to-cart-mt"> <i class="fa fa-shopping-cart"></i><span> Add to Cart</span> </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="product-item">
-                  <div class="item-inner">
-                    <div class="product-thumb has-hover-img">
-                      <div class="icon-new-label new-left">New</div>
-                      <a title="Ipsums Dolors Untra" href="single_product.html">
-                      <figure> <img class="first-img" src="images/products/img05.jpg" alt=""> <img class="hover-img" src="images/products/img08.jpg" alt=""></figure>
-                      </a>
-                      <div class="pr-info-area animated animate2"><a href="quick_view.html" class="quick-view"><i class="fa fa-search"><span>Quick view</span></i></a> <a href="wishlist.html" class="wishlist"><i class="fa fa-heart"><span>Wishlist</span></i></a> <a href="compare.html" class="compare"><i class="fa fa-exchange"><span>Compare</span></i></a> </div>
-                    </div>
-                    <div class="item-info">
-                      <div class="info-inner">
-                        <div class="item-title">
-                          <h4><a title="Ipsums Dolors Untra" href="single_product.html">Ipsums Dolors Untra </a></h4>
-                        </div>
-                        <div class="item-content">
-                          <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                          <div class="item-price">
-                            <div class="price-box">
-                              <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $456.00 </span> </p>
-                              <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $567.00 </span> </p>
-                            </div>
-                          </div>
-                          <div class="pro-action">
-                            <button type="button" class="add-to-cart-mt"> <i class="fa fa-shopping-cart"></i><span> Add to Cart</span> </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="product-item">
-                  <div class="item-inner">
-                    <div class="product-thumb has-hover-img"> <a title="Ipsums Dolors Untra" href="single_product.html">
-                      <figure> <img class="first-img" src="images/products/img06.jpg" alt=""> <img class="hover-img" src="images/products/img01.jpg" alt=""></figure>
-                      </a>
-                      <div class="pr-info-area animated animate2"><a href="quick_view.html" class="quick-view"><i class="fa fa-search"><span>Quick view</span></i></a> <a href="wishlist.html" class="wishlist"><i class="fa fa-heart"><span>Wishlist</span></i></a> <a href="compare.html" class="compare"><i class="fa fa-exchange"><span>Compare</span></i></a> </div>
-                    </div>
-                    <div class="item-info">
-                      <div class="info-inner">
-                        <div class="item-title">
-                          <h4><a title="Ipsums Dolors Untra" href="single_product.html">Ipsums Dolors Untra </a></h4>
-                        </div>
-                        <div class="item-content">
-                          <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                          <div class="item-price">
-                            <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
-                          </div>
-                          <div class="pro-action">
-                            <button type="button" class="add-to-cart-mt"> <i class="fa fa-shopping-cart"></i><span> Add to Cart</span> </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                @endforeach
               </div>
             </div>
           </div>

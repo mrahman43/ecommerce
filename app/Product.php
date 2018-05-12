@@ -24,4 +24,10 @@ class Product extends Model
     public function shoppingcart() {
         return $this->hasMany('App\Shoppingcart');
     }
+    public function offer() {
+        return $this->hasOne('App\Offer');
+    }
+    public function wishlist() {
+        return $this->hasMany('App\Wishlist');
+    }
 }

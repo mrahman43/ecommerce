@@ -81,7 +81,7 @@ class ShoppingcartController extends Controller
             if(Shoppingcart::where([['order_id',$order_id],['product_id',$request->product_id]])->exists())
             {
                 //dd($oldcart);
-                //$oldcart = Shoppingcart::where([['order_id',$order_id],['product_id',$request->product_id]])->first();
+                $oldcart = Shoppingcart::where([['order_id',$order_id],['product_id',$request->product_id]])->first();
                 $oldcart = Shoppingcart::find($oldcart->id);
                 $oldcart->quantity = $oldcart->quantity + $request->quantity;
                 $oldcart->save();
@@ -179,4 +179,5 @@ class ShoppingcartController extends Controller
       }
       return redirect()->route('cart.index');
     }
+    
 }

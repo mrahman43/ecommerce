@@ -28,7 +28,7 @@
         <div class="row">
           <div class="col-sm-4 col-md-3 col-xs-8">
             <!-- Header Logo -->
-            <div class="logo"><a title="e-commerce" href="index.html"><img alt="e-commerce" src="images/logo.png"></a> </div>
+            <div class="logo"><a title="e-commerce" href="index.html"><img alt="e-commerce" src="{{ asset('website/images/logo.png') }}"></a> </div>
             <!-- End Header Logo -->
           </div>
           <div class="col-md-9 col-sm-8 col-xs-4">
@@ -67,8 +67,24 @@
     </div>
   </nav>
   <!-- end nav -->
-  
-  <!-- Home Slider Start -->
+    @include('partials.website._message')
+    <!-- Home Slider Start -->
+    <!-- Breadcrumbs -->
+
+    {{-- <div class="breadcrumbs">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <ul>
+              <li class="home"> <a title="Go to Home Page" href="index.html">Home</a><span>&raquo;</span></li>
+              <li class=""> <a title="Go to Home Page" href="shop_grid.html">@yield('breadcrumb')</a><span></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div> --}}
+    <!-- Breadcrumbs End -->
+
     @yield('content')
 
     @include('partials.website._footer')

@@ -11,6 +11,8 @@ use App\Shoppingcart;
 use App\Order;
 use App\Website;
 use App\Brand;
+use App\Review;
+use App\Offer;
 use Auth;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,14 +29,16 @@ class AppServiceProvider extends ServiceProvider
           $subcategories = Subcategory::all();
           $products = Product::all();
           $brands = Brand::all();
-          $website = website::all()->last();
+          $website = Website::all()->last();
+          $reviews = Review::all();
+          $offers = Offer::all();
           view()->share('categories', $categories);
           view()->share('subcategories', $subcategories);
           view()->share('products', $products);
           view()->share('brands', $brands);
           view()->share('website', $website);
-
-          
+          view()->share('reviews', $reviews);
+          view()->share('offers', $offers);
     }
 
     /**

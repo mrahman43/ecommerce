@@ -9,61 +9,7 @@
 <ul>
   <li><a href="{{ route('home')}}" class="home1">Home</a>
   </li>
-  <li><a href="shop_grid.html">Pages</a>
-    <ul>
-      <li><a href="#" class="">Shop Pages </a>
-        <ul>
-          <li> <a href="shop_grid.html"> Shop grid </a> </li>
-          <li> <a href="shop_grid_right_sidebar.html"> Shop grid right sidebar</a> </li>
-          <li> <a href="shop_list.html"> Shop list </a> </li>
-          <li> <a href="shop_list_right_sidebar.html"> Shop list right sidebar</a> </li>
-          <li> <a href="shop_grid_full_width.html"> Shop Full width </a> </li>
-        </ul>
-      </li>
-      <li><a href="#">Ecommerce Pages </a>
-        <ul>
-          <li> <a href="wishlist.html"> Wishlists </a> </li>
-          <li> <a href="checkout.html"> Checkout </a> </li>
-          <li> <a href="compare.html"> Compare </a> </li>
-          <li> <a href="shopping_cart.html"> Shopping cart </a> </li>
-          <li> <a href="quick_view.html"> Quick View </a> </li>
-        </ul>
-      </li>
-      <li> <a href="#">Static Pages </a>
-        <ul>
-          <li> <a href="account_page.html"> Create Account Page </a> </li>
-          <li> <a href="about_us.html"> About Us </a> </li>
-          <li> <a href="contact_us.html"> Contact us </a> </li>
-          <li> <a href="404error.html"> Error 404 </a> </li>
-          <li> <a href="faq.html"> FAQ </a> </li>
-        </ul>
-      </li>
-      <li> <a href="#">Product Categories </a>
-        <ul>
-          <li> <a href="cat-3-col.html"> 3 Column Sidebar </a> </li>
-          <li> <a href="cat-4-col.html"> 4 Column Sidebar</a> </li>
-          <li> <a href="cat-4-col-full.html"> 4 Column Full width </a> </li>
-          <li> <a href="cat-6-col.html"> 6 Columns Full width</a> </li>
-        </ul>
-      </li>
-      <li> <a href="#">Single Product Pages </a>
-        <ul>
-          <li><a href="single_product.html"> single product </a> </li>
-          <li> <a href="single_product_left_sidebar.html"> single product left sidebar</a> </li>
-          <li> <a href="single_product_right_sidebar.html"> single product right sidebar</a> </li>
-          <li> <a href="single_product_magnific_popup.html"> single product magnific popup</a> </li>
-        </ul>
-      </li>
-      <li> <a href="#"> Blog Pages </a>
-        <ul>
-          <li><a href="blog_right_sidebar.html">Blog – Right sidebar </a></li>
-          <li><a href="blog_left_sidebar.html">Blog – Left sidebar </a></li>
-          <li><a href="blog_full_width.html">Blog_ - Full width</a></li>
-          <li><a href="single_post.html">Single post </a></li>
-        </ul>
-      </li>
-</ul>
-  </li>
+  
   <li><a href="contact_us.html">Contact us</a></li>
   <li><a href="about_us.html">About us</a></li>
   <li><a href="blog.html">Blog</a>
